@@ -1,0 +1,35 @@
+/* pages/video/video.wxss */
+.videoContainer .header{
+  display: flex;
+  padding: 10rpx;
+}
+.videoContainer .header image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.videoContainer .header .search{
+  border: 1rpx solid #eee;
+  /* flex-grow 可拉伸 flex-shrink 可压缩  flex-basis 当前元素的宽度 */
+  flex: 1;
+  margin: 0 20rpx;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  color: #d43c33;
+}
+
+/* 导航区域 */
+.navScrll{
+  display: flex;
+  white-space: nowrap;
+}
+.navScrll .navItem{
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+.navScrll .active{
+  border-bottom: 1rpx solid #d43c43;
+}

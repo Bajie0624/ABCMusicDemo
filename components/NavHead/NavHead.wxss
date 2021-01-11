@@ -1,0 +1,16 @@
+/* components/NavHeadT/NavHead.wxss *//* components/NavHead.wxss */
+ .head{
+  padding-bottom: 20rpx;
+}
+ .head .title{
+  font-size: 32rpx;
+  color: #666;
+  line-height: 80rpx;
+}
+ .head .more{
+  float: right;
+  border:1rpx solid #333;
+  padding: 10rpx 20rpx;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+}

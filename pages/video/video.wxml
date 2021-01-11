@@ -1,0 +1,26 @@
+<!--pages/video/video.wxml-->
+<view class="videoContainer">
+  <!-- 头部区域 -->
+  <view class="header">
+    <image src="/static/images/video/video.jpg"></image>
+    <view class="search">
+      搜索音乐
+    </view>
+    <image src="/static/images/logo.png"></image>
+  </view>
+  <!-- 导航区域 -->
+  <scroll-view scroll-x="true" class="navScrll" enable-flex="true">
+    <view class="navItem">
+      <view class="navContent active">推荐</view>
+    </view>
+    <view class="navItem">
+      <view class="navContent">推荐</view>
+    </view>
+    <view class="navItem">
+      <view class="navContent">推荐</view>
+    </view>
+    <view class="navItem">
+      <view class="navContent">推荐</view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,12 @@
+<!--components/NavHeadT/NavHead.wxml-->
+<view class="recommendContainer">
+    <view class="head">
+      <text class="title">{{title}}</text>
+      <view>
+        <text>{{nav}}</text>
+        <text class="more">查看更多</text>
+      </view>
+    </view>
+
+  </view>
+

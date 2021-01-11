@@ -1,18 +1,45 @@
-// pages/index/index.js
+// index/index.js
+import request from '../../utils/request'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    msg:'初始化的测试数据'
+    bannerList:[],//轮播图数据
+    recommendList:[],//推荐歌单
+    topList:[],//排行榜数据
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    //轮播图数据
+    let bannerListData  = await request('/banner',{type:2})
+    this.setData({
+      bannerList:bannerListData.banners
+    })
+    //推荐歌单数据
+    let recommendListData = await request('/personalized',{limit:10})
+    this.setData({
+      recommendList:recommendListData.result
+    })
+    // 排行榜数据
+    let index = 0; //用来标识idx
+    let resultArr = [];
+    while(index < 5){
+      let topListData = await request('/top/list',{idx:index++});
+      let topListItem = {name:topListData.playlist.name,tracks:topListData.playlist.tracks.slice(0,3)}
+      resultArr.push(topListItem);
+      //更新toplist的状态值
+      this.setData({
+        topList:resultArr,
+      })
+    }
+    
+    
   },
 
   /**
