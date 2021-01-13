@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/songDetail/songDetail",
+    "pages/recomendSong/reconmendSong",
+    "pages/index/index",
     "pages/video/video",
     "pages/personal/personal",
-    "pages/login/login",
-    "pages/index/index"
-    
+    "pages/login/login"
   ],
   "window": {
     "navigationBarBackgroundColor": "#d43c33",
@@ -29,7 +30,7 @@
         "selectedIconPath": "/static/images/tabs/selected.png"
       },
       {
-        "pagePath": "pages/video/video",
+        "pagePath": "pages/personal/personal",
         "text": "个人中心",
         "iconPath": "/static/images/tabs/tab-my.png",
         "selectedIconPath": "/static/images/tabs/tab-my-current.png"

@@ -7,8 +7,18 @@ export default (url,data={},method='GET')=>{
       url:config.host + url,
       data,
       method,
+      header:{
+        cookie: wx.getStorageSync('cookies')?wx.getStorageSync('cookies').find(item => item.indexOf('MUSIC_U') !== -1):''
+      },
       success:(res) => {
         //修改promise为成功装填
+        if (data.isLogin) {
+          // 将用户cookia存入到本地
+          wx.setStorage({
+            data: res.cookies,
+            key: 'cookies',
+          })
+        }
         resolve(res.data)
       },
       fail:(err) => {

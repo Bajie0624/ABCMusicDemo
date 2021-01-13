@@ -1,0 +1,53 @@
+/* pages/songDetail/songDetail.wxss */
+page {
+  height: 100%;
+}
+.songDetailContainer{
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 充当底座 */
+.circle{
+  position: relative;
+  z-index: 100;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background: #fff;
+  margin: 10rpx 0;
+}
+/* 摇杆 */
+.needle{
+  position: relative;
+  left: 60rpx;
+  width: 192rpx;
+  height: 274rpx;
+  top: -40rpx;
+  z-index: 99;
+}
+.disContainer{
+  position: relative;
+  top:-170rpx;
+  width: 598rpx;
+  height: 598rpx;
+}
+/* 磁盘 */
+.disc{
+  width: 598rpx;
+  height: 598rpx;
+}
+.musicImg{
+  position: absolute;
+  top:0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  left: 0;
+  margin:auto;
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
