@@ -2,9 +2,17 @@
 <view class="songDetailContainer">
   <view class="author">beyound</view>
   <view class="circle"></view>
-  <image class="needle" src="/static/images/song/needle.png"></image>
-  <view class="disContainer">
+  <image class="needle {{isPlay?'neddleTotate':''}}" src="/static/images/song/needle.png"></image>
+  <view class="disContainer {{isPlay?'discAnimation':''}}">
     <image class="disc" src="/static/images/song/disc.png"></image>
     <image class="musicImg" src="/static/images/nvsheng.jpg"></image>
+  </view>
+  <!-- 控制播放区域 -->
+  <view class="musicControl">
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiShuffle"></text>
+    <text class="iconfont icon-shangyishou" id="pre" bindtap="handleSwitch"></text>
+    <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay"></text>
+    <text class="iconfont icon-next" id="next" bindtap="handleSwitch"></text>
+    <text class="iconfont icon-iconsMusicyemianbofangmoshiPlayList"></text>
   </view>
 </view>

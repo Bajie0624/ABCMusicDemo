@@ -1,13 +1,20 @@
 // pages/songDetail/songDetail.js
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isPlay:false,//标识音乐是否播放
   },
-
+  // 处理音乐播放
+  handleMusicPlay(){
+    let isPlay = !this.data.isPlay
+    this.setData({
+      isPlay
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

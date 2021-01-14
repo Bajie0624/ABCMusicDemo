@@ -1,4 +1,5 @@
 /* pages/songDetail/songDetail.wxss */
+@import '/static/iconfont/iconfont.wxss';
 page {
   height: 100%;
 }
@@ -27,6 +28,12 @@ page {
   height: 274rpx;
   top: -40rpx;
   z-index: 99;
+  transform-origin: 40rpx 0;
+  transform: rotate(-20deg);
+  transition: transform 1s;
+}
+.neddleTotate{
+  transform: rotate(0deg);
 }
 .disContainer{
   position: relative;
@@ -39,6 +46,23 @@ page {
   width: 598rpx;
   height: 598rpx;
 }
+.discAnimation{
+  animation-delay: 1s;
+  animation: disc 4s linear infinite;
+}
+@keyframes disc{
+  /* @keyframes
+    1.from to 适用于简单的动画 只有起始帧和结束帧
+    2.百分比  多用于复杂的动画  动画不止有两帧  0%-10%可以任意拆分
+   */
+   from{
+    transform: rotate(0deg);
+   }
+   to{
+     transform: rotate(360deg);
+   }
+
+}
 .musicImg{
   position: absolute;
   top:0;
@@ -50,4 +74,25 @@ page {
   width: 370rpx;
   height: 370rpx;
   border-radius: 50%;
+}
+/* 控制播放区域 */
+.musicControl{
+  width: 100%;
+  display: flex;
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  border-top: 1rpx solid rgb(177, 66, 66);
+}
+.musicControl  text {
+  width: 20%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.musicControl  text.big{
+  font-size: 80rpx;
 }
