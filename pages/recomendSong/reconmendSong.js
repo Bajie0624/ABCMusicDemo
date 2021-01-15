@@ -9,6 +9,7 @@ Page({
     day:'',//天
     month:'',//月
     recommendList:[],//推荐列表数据
+    index: 0, // 点击音乐的下标
   },
 
   /**
@@ -36,12 +37,24 @@ Page({
     })
     // 每日推荐数据
     this.getRecommendList();
+    
   },
   // 获取用户每日推荐数据
   async getRecommendList(){
     let recommendListData = await request('/recommend/songs');
     this.setData({
       recommendList:recommendListData.recommend,
+    })
+  },
+  // 跳转到歌曲详情界面
+  toSongDetail(event){
+    let {song, index} = event.currentTarget.dataset;
+    this.setData({
+      index:index
+    })
+    // 在路由跳转中传参 支持query参数
+    wx.navigateTo({
+      url: '/pages/songDetail/songDetail?musicId=' + song.id
     })
   },
   /**

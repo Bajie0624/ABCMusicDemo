@@ -1,11 +1,11 @@
 <!--pages/songDetail/songDetail.wxml-->
 <view class="songDetailContainer">
-  <view class="author">beyound</view>
+  <view class="author">{{song.ar[0].name}}</view>
   <view class="circle"></view>
   <image class="needle {{isPlay?'neddleTotate':''}}" src="/static/images/song/needle.png"></image>
   <view class="disContainer {{isPlay?'discAnimation':''}}">
     <image class="disc" src="/static/images/song/disc.png"></image>
-    <image class="musicImg" src="/static/images/nvsheng.jpg"></image>
+    <image class="musicImg" src="{{song.al.picUrl}}"></image>
   </view>
   <!-- 控制播放区域 -->
   <view class="musicControl">

@@ -1,0 +1,29 @@
+{
+  "name": "abcmusicdemo",
+  "version": "1.0.0",
+  "description": "demo",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bajie0624/ABCMusicDemo.git"
+  },
+  "keywords": [
+    "zpfzxw"
+  ],
+  "author": "bajie0624",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bajie0624/ABCMusicDemo/issues"
+  },
+  "homepage": "https://github.com/Bajie0624/ABCMusicDemo#readme",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "pubsub-js": "^1.9.2"
+  }
+}
