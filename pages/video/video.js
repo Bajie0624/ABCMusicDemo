@@ -110,6 +110,12 @@ Page({
   handleRefresh(event){
     this.getVideoList(this.data.navId);
   },
+  // 跳转到视频页面
+  toSearch(){
+    wx.navigateTo({
+      url: '/pages/search/search',
+    })
+  },
   //实现自定义上拉触底
   // 正常是发送请求或者在前端截取数据加载到视频后方即可  下拉刷新 上拉加载
   handleToLower(event){

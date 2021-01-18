@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/search/search",
     "pages/recomendSong/reconmendSong",
     "pages/songDetail/songDetail",
-    "pages/index/index",
     "pages/video/video",
     "pages/personal/personal",
     "pages/login/login"
@@ -12,7 +13,9 @@
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "开心音乐"
   },
-  "requiredBackgroundModes": ["audio"],
+  "requiredBackgroundModes": [
+    "audio"
+  ],
   "tabBar": {
     "color": "#333333",
     "selectedColor": "#d43c33",

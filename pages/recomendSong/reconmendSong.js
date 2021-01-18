@@ -1,4 +1,4 @@
-// pages/recomendSong/reconmendSong.js
+import PubSub from 'pubsub-js';
 import request from '../../utils/request'
 Page({
 
@@ -6,9 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    day:'',//天
-    month:'',//月
-    recommendList:[],//推荐列表数据
+    day: '', // 天
+    month: '', // 月
+    recommendList: [], // 推荐列表数据
     index: 0, // 点击音乐的下标
   },
 
@@ -17,46 +17,69 @@ Page({
    */
   onLoad: function (options) {
     // 判断用户是否登录
-    let userInfo = wx.getStorageInfoSync('userInfo');
+    let userInfo = wx.getStorageSync('userInfo');
     if(!userInfo){
       wx.showToast({
         title: '请先登录',
-        icon:'none',
-        success:()=>{
-          //跳转到登录界面
+        icon: 'none',
+        success: () => {
+          // 跳转至登录界面
           wx.reLaunch({
-            url: '/pages/login/login',
+            url: '/pages/login/login'
           })
         }
       })
     }
-    // 更新日期状态数据
+    // 更新日期的状态数据
     this.setData({
       day: new Date().getDate(),
-      month:new Date().getMonth()+1,
+      month: new Date().getMonth() + 1
     })
-    // 每日推荐数据
+  
+    // 获取每日推荐的数据
     this.getRecommendList();
     
+    // 订阅来自songDetail页面发布的消息
+    PubSub.subscribe('switchType', (msg, type) => {
+      let {recommendList, index} = this.data;
+      if(type === 'pre'){ // 上一首
+        (index === 0) && (index = recommendList.length);
+        index = index - 1;
+      }else { // 下一首
+        (index === recommendList.length - 1) && (index = -1);
+        index = index + 1;
+      }
+      // 更新下标
+      this.setData({
+        index
+      })
+      let musicId = recommendList[index].id;
+      // 将musicId回传给songDetail页面
+      PubSub.publish('musicId', musicId)
+      
+    });
   },
+  
   // 获取用户每日推荐数据
   async getRecommendList(){
     let recommendListData = await request('/recommend/songs');
     this.setData({
-      recommendList:recommendListData.recommend,
+      recommendList: recommendListData.recommend
     })
   },
-  // 跳转到歌曲详情界面
+  
+  // 跳转至songDetail页面
   toSongDetail(event){
     let {song, index} = event.currentTarget.dataset;
     this.setData({
-      index:index
+      index
     })
-    // 在路由跳转中传参 支持query参数
+    // 路由跳转传参： query参数
     wx.navigateTo({
       url: '/pages/songDetail/songDetail?musicId=' + song.id
     })
   },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

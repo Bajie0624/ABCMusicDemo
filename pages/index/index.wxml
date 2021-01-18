@@ -10,7 +10,7 @@
   <!-- 五个图标导航区域 -->
   <view class="navContainer">
     <view class="navItem">
-      <text class="iconfont icon-meirituijian"></text>
+      <text class="iconfont icon-meirituijian" bindtap="toRecommendSong"></text>
       <text>每日推荐</text>
     </view>
     <view class="navItem">
